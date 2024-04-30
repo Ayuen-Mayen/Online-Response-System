@@ -10,7 +10,7 @@ if (strlen($_SESSION['aid']==0)) {
 //Code for record deletion
 if($_GET['teamid']){
 $tid=$_GET['teamid'];
-mysqli_query($con,"delete from tblteams where id ='$tid'");
+mysqli_query($con,"delete from emgteams where id ='$tid'");
 echo "<script>alert('Data Deleted');</script>";
 echo "<script>window.location.href='manage-teams.php'</script>";
           }
@@ -102,7 +102,7 @@ echo "<script>window.location.href='manage-teams.php'</script>";
                                         </tr>
                                     </tfoot>
                                     <tbody>
-<?php $query=mysqli_query($con,"select * from tblteams ");
+<?php $query=mysqli_query($con,"select * from emgteams ");
 $cnt=1;
 while($row=mysqli_fetch_array($query)){
 ?>

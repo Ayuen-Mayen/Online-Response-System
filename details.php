@@ -42,7 +42,7 @@
                                 <div class="card-body">
    
 <?php $rid=$_GET['requestid'];
-$query=mysqli_query($con,"select * from tblfirereport where id='$rid'");
+$query=mysqli_query($con,"select * from emgreport where id='$rid'");
 while($row=mysqli_fetch_array($query)){
 ?>
  <table class="table table-bordered"  width="100%" cellspacing="0">
@@ -92,9 +92,9 @@ while($row=mysqli_fetch_array($query)){
                                     <h6 class="m-0 font-weight-bold text-primary">Assigned Details</h6>
                                 </div>
                                 <div class="card-body">
-<?php $query=mysqli_query($con,"select * from tblfirereport 
-join tblteams on tblteams.id=tblfirereport.assignTo
-    where tblfirereport.id='$rid'");
+<?php $query=mysqli_query($con,"select * from emgreport 
+join emgteams on emgteams.id=emgreport.assignTo
+    where emgreport.id='$rid'");
 $count=mysqli_num_rows($query);
 if($count>0){
 while($row=mysqli_fetch_array($query)){ ?>
@@ -140,7 +140,7 @@ while($row=mysqli_fetch_array($query)){ ?>
 
 <!-- Test Tracking History --->
 <?php
-$ret=mysqli_query($con,"select * from tblfiretequesthistory where requestId='$rid'");
+$ret=mysqli_query($con,"select * from emghistory where requestId='$rid'");
 $num=mysqli_num_rows($ret);
 ?>
 

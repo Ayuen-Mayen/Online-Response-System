@@ -98,7 +98,7 @@ $tdate=$_POST['todate'];
                                         </tr>
                                     </tfoot>
                                     <tbody>
-<?php $query=mysqli_query($con,"select * from tblfirereport where  date(tblfirereport.postingDate) between '$fdate' and '$tdate'
+<?php $query=mysqli_query($con,"select * from emgreport where  date(emgreport.postingDate) between '$fdate' and '$tdate'
     ");
 $cnt=1;
 while($row=mysqli_fetch_array($query)){

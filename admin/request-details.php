@@ -12,7 +12,7 @@ if (strlen($_SESSION['aid']==0)) {
     $rid=$_GET['requestid'];
     $assignto=$_POST['assignto'];
     $assigntime=date('d-m-y h:m:s');
-$query=mysqli_query($con, "update tblfirereport set assignTo='$assignto',assignTme='$assigntime',status='Assigned' where id='$rid'");
+$query=mysqli_query($con, "update emgreport set assignTo='$assignto',assignTme='$assigntime',status='Assigned' where id='$rid'");
 if ($query) {
 echo '<script>alert("Request has been assigned to the team.")</script>';
 echo "<script>window.location.href ='assigned-requests.php'</script>";
@@ -26,9 +26,9 @@ echo '<script>alert("Something Went Wrong. Please try again.")</script>';
     $rid=$_GET['requestid'];
     $status=$_POST['status'];
     $remark=$_POST['remark'];
-$query=mysqli_query($con, "insert into tblfiretequesthistory(requestId,status,remark) values('$rid','$status','$remark')");
+$query=mysqli_query($con, "insert into emghistory(requestId,status,remark) values('$rid','$status','$remark')");
 if ($query) {
-$query=mysqli_query($con, "update tblfirereport set status='$status' where id='$rid'");    
+$query=mysqli_query($con, "update emgreport set status='$status' where id='$rid'");    
 echo '<script>alert("Request has been updated.")</script>';
 echo "<script>window.location.href ='all-requests.php'</script>";
   }else{
@@ -48,7 +48,7 @@ echo '<script>alert("Something Went Wrong. Please try again.")</script>';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Fire Reporting Details</title>
+    <title> Emergency Reporting Details</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -90,7 +90,7 @@ label{
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Fire Reporting Details</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Emergency Reporting Details</h1>
      <form method="post"  name="adminprofile" >
 
 
@@ -107,7 +107,7 @@ label{
                                 <div class="card-body">
    
 <?php $rid=$_GET['requestid'];
-$query=mysqli_query($con,"select * from tblfirereport where id='$rid'");
+$query=mysqli_query($con,"select * from emgreport where id='$rid'");
 while($row=mysqli_fetch_array($query)){
 ?>
  <table class="table table-bordered"  width="100%" cellspacing="0">
@@ -149,7 +149,7 @@ while($row=mysqli_fetch_array($query)){
             </div>                                        
 <?php else: 
 $rstatus=$row['status'];
-if($rstatus=='Assigned' || $rstatus=='Team On the Way' || $rstatus=='Fire Relief Work in Progress'):?>
+if($rstatus=='Assigned' || $rstatus=='Team On the Way' || $rstatus=='Emergency Relief Work in Progress'):?>
 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#takeaction">Take Action</button>
 <?php 
 endif;
@@ -169,9 +169,9 @@ endif;?>
                                     <h6 class="m-0 font-weight-bold text-primary">Assigned Details</h6>
                                 </div>
                                 <div class="card-body">
-<?php $query=mysqli_query($con,"select * from tblfirereport 
-join tblteams on tblteams.id=tblfirereport.assignTo
-    where tblfirereport.id='$rid'");
+<?php $query=mysqli_query($con,"select * from emgreport 
+join emgteams on emgteams.id=emgreport.assignTo
+    where emgreport.id='$rid'");
 $count=mysqli_num_rows($query);
 if($count>0){
 while($row=mysqli_fetch_array($query)){ ?>
@@ -217,7 +217,7 @@ while($row=mysqli_fetch_array($query)){ ?>
 
 <!-- Test Tracking History --->
 <?php
-$ret=mysqli_query($con,"select * from tblfiretequesthistory where requestId='$rid'");
+$ret=mysqli_query($con,"select * from emghistory where requestId='$rid'");
 $num=mysqli_num_rows($ret);
 ?>
 
@@ -298,7 +298,7 @@ $num=mysqli_num_rows($ret);
 <form method="post">
           <p>  <select class="form-control" name="assignto" required="true">
             <option value="">Select Team</option>
-            <?php $sql=mysqli_query($con,"select id,teamName,teamLeaderName from tblteams");
+            <?php $sql=mysqli_query($con,"select id,teamName,teamLeaderName from emgteams");
             while ($result=mysqli_fetch_array($sql)) {
             ?>
             <option value="<?php echo $result['id'];?>"><?php echo $result['teamName'];?>-(<?php echo $result['teamLeaderName'];?>)</option>
@@ -332,7 +332,7 @@ $num=mysqli_num_rows($ret);
             <option value="">Select Action</option>
   <?php 
 
-  $query1=mysqli_query($con,"select status from tblfirereport where id='$rid'");
+  $query1=mysqli_query($con,"select status from emgreport where id='$rid'");
   while($result=mysqli_fetch_array($query1)):
 $rstatus=$result['status'];
 endwhile;
@@ -340,12 +340,12 @@ endwhile;
 
             <?php if($rstatus=='Assigned'):?>
             <option value="Team On the Way">Team On the Way</option>
-            <option value="Fire Relief Work in Progress">Fire Relief Work in Progress</option>
+            <option value="Emergency Relief Work in Progress">Fire Relief Work in Progress</option>
             <option value="Request Completed">Request Completed</option>
             <?php elseif($rstatus=='Team On the Way'):?>
-        <option value="Fire Relief Work in Progress">Fire Relief Work in Progress</option>
+        <option value="Emergency Relief Work in Progress">Emergency Relief Work in Progress</option>
             <option value="Request Completed">Request Completed</option>
-            <?php elseif($rstatus=='Fire Relief Work in Progress'):?>
+            <?php elseif($rstatus=='Emergency Relief Work in Progress'):?>
                <option value="Request Completed">Request Completed</option>
          <?php endif;?>
 

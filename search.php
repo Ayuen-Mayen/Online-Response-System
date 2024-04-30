@@ -26,7 +26,7 @@
                 <div class="col-md-12 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">Online Fire Report</h2>
+                            <h2 class="card-title">Online Emergency Report</h2>
 
 <form method="post" action="search-report-result.php">
   <table class="table table-bordered">

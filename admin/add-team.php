@@ -13,7 +13,7 @@ if (strlen($_SESSION['aid']==0)) {
     $tlname=$_POST['teamleadname'];
   $mobno=$_POST['mobilenumber'];
   $tmember=$_POST['teammember'];
-$query=mysqli_query($con, "insert into tblteams(teamName,teamLeaderName,teamLeadMobno,teamMembers) values('$tname','$tlname','$mobno','$tmember')");
+$query=mysqli_query($con, "insert into emgteams(teamName,teamLeaderName,teamLeadMobno,teamMembers) values('$tname','$tlname','$mobno','$tmember')");
 if ($query) {
 echo '<script>alert("Team Created.")</script>';
 echo "<script>window.location.href ='manage-teams.php'</script>";
@@ -76,7 +76,7 @@ label{
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Fire Safety Team Creation</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Emergency Team Creation</h1>
      <form method="post"  name="adminprofile" >
 
 
@@ -108,7 +108,7 @@ label{
 </div>
 
 <div class="form-group">
-<label>Team Member (Seprated by Comma)</label>
+<label>Team Member (Separated by Comma)</label>
 <input type="text" class="form-control" name="teammember" value="" required='true'>
 </div>
 

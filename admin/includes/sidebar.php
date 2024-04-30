@@ -26,7 +26,7 @@ $wtitle=$row['siteTitle'];
 <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages1">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Fire Control Teams</span>
+                    <span>Emergency Teams</span>
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -41,7 +41,7 @@ $wtitle=$row['siteTitle'];
 <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-fire"></i>
-                    <span>Fire Alerts</span>
+                    <span>Emergency Alerts</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">

@@ -20,7 +20,7 @@ if (strlen($_SESSION['aid']==0)) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>OFRS | Search Report</title>
+    <title>OERS | Search Report</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -97,7 +97,7 @@ $searchdata=$_POST['serachdata'];
                                         </tr>
                                     </tfoot>
                                     <tbody>
-<?php $query=mysqli_query($con,"select * from tblfirereport where   fullName like '%$searchdata%' || mobileNumber like '%$searchdata%' || location like '%$searchdata%'");
+<?php $query=mysqli_query($con,"select * from emgreport where   fullName like '%$searchdata%' || mobileNumber like '%$searchdata%' || location like '%$searchdata%'");
 $cnt=1;
 while($row=mysqli_fetch_array($query)){
 ?>

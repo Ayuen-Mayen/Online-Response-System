@@ -64,22 +64,22 @@ if (strlen($_SESSION['aid']==0)) {
 
 <?php 
 //Total 
-$query=mysqli_query($con,"select id from tblfirereport");
+$query=mysqli_query($con,"select id from emgreport");
 $totalreportings=mysqli_num_rows($query);
 
-$query1=mysqli_query($con,"select id from tblfirereport where status='Request Completed'");
+$query1=mysqli_query($con,"select id from emgreport where status='Request Completed'");
 $requestcompleted=mysqli_num_rows($query1);
 
-$query11=mysqli_query($con,"select id from tblfirereport where status='Assigned'");
+$query11=mysqli_query($con,"select id from emgreport where status='Assigned'");
 $assignedrequests=mysqli_num_rows($query11);
 
-$query2=mysqli_query($con,"select id from tblfirereport where status='Team On the Way'");
+$query2=mysqli_query($con,"select id from emgreport where status='Team On the Way'");
 $tonthewayreq=mysqli_num_rows($query2);
 
-$query3=mysqli_query($con,"select id from tblfirereport where status='Fire Relief Work in Progress'");
+$query3=mysqli_query($con,"select id from emgreport where status='Fire Relief Work in Progress'");
 $frwprequests=mysqli_num_rows($query3);
 
-$query4=mysqli_query($con,"select id from tblfirereport where status is null");
+$query4=mysqli_query($con,"select id from emgreport where status is null");
 $newrequests=mysqli_num_rows($query4);
 
 ?>
@@ -91,7 +91,7 @@ $newrequests=mysqli_num_rows($query4);
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"> New Fire Requests
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"> New Emergency Requests
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -120,7 +120,7 @@ $newrequests=mysqli_num_rows($query4);
 
 
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                             Total Fire Reportings</div>
+                                             Total Emergency Reportings</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalreportings;?></div>
                                         </div>
                                         <div class="col-auto">
@@ -140,7 +140,7 @@ $newrequests=mysqli_num_rows($query4);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                              Fire Request Completed</div>
+                                              Emergency Response Request Completed</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $requestcompleted;?></div>
                                         </div>
                                         <div class="col-auto">
@@ -159,7 +159,7 @@ $newrequests=mysqli_num_rows($query4);
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Assigned Fire Requests
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Assigned Emergency Requests
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -220,7 +220,7 @@ $newrequests=mysqli_num_rows($query4);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                            Fire Relief Work in Progress</div>
+                                            Emergency Relief Work in Progress</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $frwprequests;?></div>
                                         </div>
                                         <div class="col-auto">

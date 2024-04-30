@@ -49,7 +49,7 @@
 
                 //Fetching admin Name
 $adid=$_SESSION['aid'];
-$ret1=mysqli_query($con,"select AdminName from tbladmin where ID='$adid'");
+$ret1=mysqli_query($con,"select AdminName from emgadmin where ID='$adid'");
 while($row1=mysqli_fetch_array($ret1)){
 
 ?>

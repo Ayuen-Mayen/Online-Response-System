@@ -10,7 +10,7 @@ if (strlen($_SESSION['aid']==0)) {
 //Code for record deletion
 if($_GET['teamid']){
 $tid=$_GET['teamid'];
-mysqli_query($con,"delete from tblteams where id ='$tid'");
+mysqli_query($con,"delete from emgteams where id ='$tid'");
 echo "<script>alert('Data Deleted');</script>";
 echo "<script>window.location.href='manage-teams.php'</script>";
           }
@@ -66,7 +66,7 @@ echo "<script>window.location.href='manage-teams.php'</script>";
 
                     <!-- Page Heading -->
                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manage New Fire Reporting</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Manage New Emergency Reporting</h1>
                 
                     </div>
     
@@ -74,7 +74,7 @@ echo "<script>window.location.href='manage-teams.php'</script>";
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Fire Reporting Information</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Emergency Reporting Information</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -102,7 +102,7 @@ echo "<script>window.location.href='manage-teams.php'</script>";
                                         </tr>
                                     </tfoot>
                                     <tbody>
-<?php $query=mysqli_query($con,"select * from tblfirereport where status is null");
+<?php $query=mysqli_query($con,"select * from emgreport where status is null");
 $cnt=1;
 while($row=mysqli_fetch_array($query)){
 ?>

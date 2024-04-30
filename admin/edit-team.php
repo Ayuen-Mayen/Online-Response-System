@@ -14,7 +14,7 @@ if (strlen($_SESSION['aid']==0)) {
     $tlname=$_POST['teamleadname'];
   $mobno=$_POST['mobilenumber'];
   $tmember=$_POST['teammember'];
-$query=mysqli_query($con, "update  tblteams set teamName='$tname',teamLeaderName='$tlname',teamLeadMobno='$mobno',teamMembers='$tmember' where id='$teamid'");
+$query=mysqli_query($con, "update  emgteams set teamName='$tname',teamLeaderName='$tlname',teamLeadMobno='$mobno',teamMembers='$tmember' where id='$teamid'");
 if ($query) {
 echo '<script>alert("Team details updates.")</script>';
 echo "<script>window.location.href ='manage-teams.php'</script>";
@@ -82,7 +82,7 @@ label{
 
 
 <?php $teamid=$_GET['teamid'];
-$query=mysqli_query($con,"select * from tblteams where id='$teamid'");
+$query=mysqli_query($con,"select * from emgteams where id='$teamid'");
 while($row=mysqli_fetch_array($query)){
 ?>
   <div class="row">

@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>OFMS | Reporting</title>
+        <title>OERS | Reporting</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -31,7 +31,7 @@
 $searchdata=$_POST['serachdata'];
 
 ?>           
-                            <h2 class="card-title">Search Result Againt '<?php echo $searchdata;?>'</h2>
+                            <h2 class="card-title">Search Result Against '<?php echo $searchdata;?>'</h2>
 
 
         
@@ -59,7 +59,7 @@ $searchdata=$_POST['serachdata'];
                                         </tr>
                                     </tfoot>
                                     <tbody>
-<?php $query=mysqli_query($con,"select * from tblfirereport where   fullName like '%$searchdata%' || mobileNumber like '%$searchdata%' || location like '%$searchdata%'");
+<?php $query=mysqli_query($con,"select * from emgreport where   fullName like '%$searchdata%' || mobileNumber like '%$searchdata%' || location like '%$searchdata%'");
 $cnt=1;
 while($row=mysqli_fetch_array($query)){
 ?>

@@ -14,7 +14,7 @@ if (strlen($_SESSION['aid']==0)) {
   $mobno=$_POST['mobilenumber'];
   $email=$_POST['email'];
   
-     $query=mysqli_query($con, "update tbladmin set AdminName='$aname', MobileNumber ='$mobno', Email= '$email' where ID='$adminid'");
+     $query=mysqli_query($con, "update emgadmin set AdminName='$aname', MobileNumber ='$mobno', Email= '$email' where ID='$adminid'");
 $uname=$_SESSION['uname'];     
 $uip = $_SERVER ['REMOTE_ADDR'];
 $link= $_SERVER['REQUEST_URI'];
